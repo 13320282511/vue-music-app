@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Rank from 'components/rank/rank'
+import TopList from 'components/top-list/top-list'
 import Recommend from 'components/recommend/recommend'
 import Search from 'components/search/search'
 
@@ -21,7 +22,13 @@ export default new Router({
     {
       path: '/rank',
       name: 'Rank',
-      component: Rank
+      component: Rank,
+      children: [
+        {
+          path: ':id',
+          component: TopList
+        }
+      ]
     },
     {
       path: '/search',
